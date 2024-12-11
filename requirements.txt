@@ -1,0 +1,9 @@
+beautifulsoup4
+python-telegram-bot
+Requests
+setuptools
+protobuf
+grpcio
+grpcio-tools
+firebase_admin
+google-cloud-firestore
