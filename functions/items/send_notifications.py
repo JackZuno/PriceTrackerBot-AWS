@@ -72,11 +72,11 @@ async def scheduled_message(user, context: ContextTypes.DEFAULT_TYPE, app):
         try:
             message = "No items found.\n The notifications have been disabled, you can enable them with the /auto command!"
             await app.bot.send_message(chat_id=chat_id, text=message, parse_mode='Markdown')
-            db.collection('users').document(str(chat_id)).update({'bot_on': False, 'notification_on': False})
+            db.collection('users').document(str(chat_id)).update({'bot_on': True, 'notifications_on': False})
             return ConversationHandler.END
         except Forbidden:
             print(f"User {chat_id} has blocked the bot.")
-            db.collection('users').document(str(chat_id)).update({'bot_on': False, 'notification_on': False})
+            db.collection('users').document(str(chat_id)).update({'bot_on': False, 'notifications_on': False})
 
     try:
         # Send the scheduled message
